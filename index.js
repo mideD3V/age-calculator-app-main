@@ -1,7 +1,7 @@
 // INPUTS
-let dayInput = document.getElementById('dd');
-let monthInput = document.getElementById('mm')
-let yearInput = document.getElementById('yyyy')
+let dayInput = document.getElementById('dd').value;
+let monthInput = document.getElementById('mm').value;
+let yearInput = document.getElementById('yyyy').value;
 
 //OUTPUT
 const yearOutput = document.querySelector('.year-output');
@@ -24,6 +24,7 @@ dayInput.addEventListener('input', () => {
     console.log('DAY')
     if (dayInput.value > 31) {
         dayError.textContent = '*enter a valid day'
+    
         isValid = false
         return
     } else if (dayInput.value < 1) {
@@ -74,10 +75,46 @@ yearInput.addEventListener("input", () => {
 });
 
 
+//Get Current Dates
+const date = new Date()
+let currYear = date.getFullYear()
+let currMonth = date.getMonth()
+let currDay = date.getDate()
+
 //OUTPUT Result
+const yyyy = yearInput.value;
+
+
+
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    yearOutput.textContent = yearInput.value
+//    yearOutput.textContent = 
+    console.log(yyyy)
 })
 
     
+// 
+  function age() {
+    
+
+    var date = new Date();
+    var d2 = date.getDate();
+    var m2 = 1 + date.getMonth();
+    var y2 = date.getFullYear();
+    var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if (d1 > d2) {
+      d2 = d2 + month[m2 - 1];
+      m2 = m2 - 1;
+    }
+    if (m1 > m2) {
+      m2 = m2 + 12;
+      y2 = y2 - 1;
+    }
+    var d = d2 - d1;
+    var m = m2 - m1;
+    var y = y2 - y1;
+
+    document.getElementById("age").innerHTML =
+      "Your Age is " + y + " Years " + m + " Months " + d + " Days";
+  }

@@ -51,10 +51,12 @@ input {
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
-  /* border:2px solid red; */
+  border: 1px solid hsl(0, 0%, 86%);
+  border-radius: 5px;
 }
 input:focus {
-  border: 2px solid red;
+  border: ;
+  outline: 1px solid hsl(259, 100%, 65%);
 }
 label {
   font-size: 12px;
@@ -78,6 +80,10 @@ button {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  background-color: hsl(259, 100%, 65%);
+}
+button:hover{
+  background-color: hsl(0, 0%, 8%);
 }
 
 hr {
@@ -89,7 +95,6 @@ hr {
 .result {
   margin-top: 2rem;
 }
-
 .result h1 {
   font-size: 45px;
   font-weight: bold;
@@ -107,14 +112,17 @@ hr {
   input {
     width: 90%;
   }
+
   form {
     width: 90%;
   }
+
   button {
     display: block;
     margin: 2rem auto 0;
     right: 45%;
   }
+
   hr {
     display: none;
   }
@@ -122,8 +130,11 @@ hr {
     margin-top: 3rem;
   }
   #pagetitle {
-  left: 10%;
+    left: 10%;
     width: 75%;
     font-size: 16px;
   }
+
+  
+  
 }

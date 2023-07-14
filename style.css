@@ -16,6 +16,8 @@ body {
   text-align: center;
   top: 5rem;
   left: 25%;
+  font-weight: 900;
+  color: hsl(259, 87%, 54%);
 }
 
 .card-ctn {

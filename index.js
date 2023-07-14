@@ -1,11 +1,11 @@
 // INPUTS
-let dayInput = document.getElementById('dd').value;
-let monthInput = document.getElementById('mm').value;
-let yearInput = document.getElementById('yyyy').value;
+let d1 = document.getElementById('dd');
+let m1 = document.getElementById('mm');
+let y1 = document.getElementById('yyyy');
 
 //OUTPUT
 const yearOutput = document.querySelector('.year-output');
-const monthOutput = document.getElementById('month-output');
+const monthOutput = document.querySelector('.month-output');
 const dayOutput = document.querySelector('.day-output');
 
 //ERRORS
@@ -13,21 +13,21 @@ const yearError = document.getElementById('error-year');
 const monthError = document.getElementById("error-month");
 const dayError = document.getElementById("error-day");
 
-//SUBMIT
+//SUBMIT btn
 const submitBtn = document.getElementById("submitbtn");
 submitBtn.style.background = "hsl(259, 100%, 65%)";
 
 //LOGIC
 let isValid = false
 
-dayInput.addEventListener('input', () => {
+d1.addEventListener('input', () => {
     console.log('DAY')
-    if (dayInput.value > 31) {
+    if (d1.value > 31) {
         dayError.textContent = '*enter a valid day'
     
         isValid = false
         return
-    } else if (dayInput.value < 1) {
+    } else if (d1.value < 1) {
         dayError.textContent = "*field required";
         isValid = false
         return
@@ -37,17 +37,17 @@ dayInput.addEventListener('input', () => {
     }
 })
 
-monthInput.addEventListener("input", () => {
+m1.addEventListener("input", () => {
   console.log("MONTH");
-  if (monthInput.value > 12) {
+  if (m1.value > 12) {
       monthError.textContent = "*enter a valid month";
     isValid = false;
     return;
-  } else if (monthInput.value < 1) {
+  } else if (m1.value < 1) {
     monthError.textContent = "*invalid month";
     isValid = false;
     return;
-  } else if (monthInput.value === '') {
+  } else if (m1.value === '') {
     monthError.textContent = "*field required";
     isValid = false;
     return;
@@ -58,13 +58,13 @@ monthInput.addEventListener("input", () => {
 });
 
 
-yearInput.addEventListener("input", () => {
+y1.addEventListener("input", () => {
   console.log("YEAR");
-  if (yearInput.value > 2023) {
+  if (y1.value > 2023) {
     yearError.textContent = "*enter a valid year";
     isValid = false;
     return;
-  } else if (yearInput.value < 1900) {
+  } else if (y1.value < 1900) {
     yearError.textContent = "*invalid year";
     isValid = false;
     return;
@@ -74,47 +74,44 @@ yearInput.addEventListener("input", () => {
   }
 });
 
-
 //Get Current Dates
-const date = new Date()
-let currYear = date.getFullYear()
-let currMonth = date.getMonth()
-let currDay = date.getDate()
 
-//OUTPUT Result
-const yyyy = yearInput.value;
+  var date = new Date();
+  var d2 = date.getDate();
+  var m2 = 1 + date.getMonth();
+  var y2 = date.getFullYear();
+var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  
+
+  submitBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
 
 
-submitBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-//    yearOutput.textContent = 
-    console.log(yyyy)
-})
+
+
+
+
+
+
 
     
-// 
-  function age() {
-    
-
-    var date = new Date();
-    var d2 = date.getDate();
-    var m2 = 1 + date.getMonth();
-    var y2 = date.getFullYear();
-    var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
     if (d1 > d2) {
       d2 = d2 + month[m2 - 1];
       m2 = m2 - 1;
     }
+
     if (m1 > m2) {
       m2 = m2 + 12;
       y2 = y2 - 1;
     }
+
     var d = d2 - d1;
     var m = m2 - m1;
     var y = y2 - y1;
 
-    document.getElementById("age").innerHTML =
-      "Your Age is " + y + " Years " + m + " Months " + d + " Days";
-  }
+    console.log(y)
+    yearOutput.innerHTML = y;
+    monthOutput.textContent = m;
+    dayOutput.textContent = d;
+  });

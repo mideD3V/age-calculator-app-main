@@ -15,7 +15,6 @@ const dayError = document.getElementById("error-day");
 
 //SUBMIT btn
 const submitBtn = document.getElementById("submitbtn");
-submitBtn.style.background = "hsl(259, 100%, 65%)";
 
 //LOGIC
 let isValid = false;
@@ -23,14 +22,16 @@ let isValid = false;
 d1.addEventListener("input", () => {
   if (d1.value > 31) {
     dayError.textContent = "*enter a valid day";
-
+  d1.style.outlineColor = "red";
     isValid = false;
     return;
   } else if (d1.value < 1) {
     dayError.textContent = "*field required";
+      d1.style.outlineColor = "red";
     isValid = false;
     return;
   } else {
+    d1.style.outlineColor = "hsl(259, 100%, 65%)";
     dayError.textContent = "";
     isValid = true;
   }
@@ -39,17 +40,21 @@ d1.addEventListener("input", () => {
 m1.addEventListener("input", () => {
   if (m1.value > 12) {
     monthError.textContent = "*enter a valid month";
+    m1.style.outlineColor = 'red'
     isValid = false;
     return;
   } else if (m1.value < 1) {
     monthError.textContent = "*invalid month";
+      m1.style.outlineColor = "red";
     isValid = false;
     return;
   } else if (m1.value === "") {
     monthError.textContent = "*field required";
+      m1.style.outlineColor = "red";
     isValid = false;
     return;
   } else {
+    m1.style.outlineColor = "hsl(259, 100%, 65%)";
     monthError.textContent = "";
     isValid = true;
   }
@@ -58,13 +63,16 @@ m1.addEventListener("input", () => {
 y1.addEventListener("input", () => {
   if (y1.value > 2023) {
     yearError.textContent = "*enter a valid year";
+      y1.style.outlineColor = "red";
     isValid = false;
     return;
   } else if (y1.value < 1900) {
     yearError.textContent = "*invalid year";
+      y1.style.outlineColor = "red";
     isValid = false;
     return;
   } else {
+          y1.style.outlineColor = "hsl(259, 100%, 65%)";
     yearError.textContent = "";
     isValid = true;
   }

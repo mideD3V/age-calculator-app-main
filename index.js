@@ -1,15 +1,15 @@
 // INPUTS
-let d1 = document.getElementById('dd');
-let m1 = document.getElementById('mm');
-let y1 = document.getElementById('yyyy');
+let d1 = document.getElementById("dd");
+let m1 = document.getElementById("mm");
+let y1 = document.getElementById("yyyy");
 
 //OUTPUT
-const yearOutput = document.querySelector('.year-output');
-const monthOutput = document.querySelector('.month-output');
-const dayOutput = document.querySelector('.day-output');
+const yearOutput = document.querySelector(".year-output");
+const monthOutput = document.querySelector(".month-output");
+const dayOutput = document.querySelector(".day-output");
 
 //ERRORS
-const yearError = document.getElementById('error-year');
+const yearError = document.getElementById("error-year");
 const monthError = document.getElementById("error-month");
 const dayError = document.getElementById("error-day");
 
@@ -18,36 +18,34 @@ const submitBtn = document.getElementById("submitbtn");
 submitBtn.style.background = "hsl(259, 100%, 65%)";
 
 //LOGIC
-let isValid = false
+let isValid = false;
 
-d1.addEventListener('input', () => {
-    console.log('DAY')
-    if (d1.value > 31) {
-        dayError.textContent = '*enter a valid day'
-    
-        isValid = false
-        return
-    } else if (d1.value < 1) {
-        dayError.textContent = "*field required";
-        isValid = false
-        return
-    } else {
-        dayError.textContent = "";
-        isValid = true
-    }
-})
+d1.addEventListener("input", () => {
+  if (d1.value > 31) {
+    dayError.textContent = "*enter a valid day";
+
+    isValid = false;
+    return;
+  } else if (d1.value < 1) {
+    dayError.textContent = "*field required";
+    isValid = false;
+    return;
+  } else {
+    dayError.textContent = "";
+    isValid = true;
+  }
+});
 
 m1.addEventListener("input", () => {
-  console.log("MONTH");
   if (m1.value > 12) {
-      monthError.textContent = "*enter a valid month";
+    monthError.textContent = "*enter a valid month";
     isValid = false;
     return;
   } else if (m1.value < 1) {
     monthError.textContent = "*invalid month";
     isValid = false;
     return;
-  } else if (m1.value === '') {
+  } else if (m1.value === "") {
     monthError.textContent = "*field required";
     isValid = false;
     return;
@@ -57,9 +55,7 @@ m1.addEventListener("input", () => {
   }
 });
 
-
 y1.addEventListener("input", () => {
-  console.log("YEAR");
   if (y1.value > 2023) {
     yearError.textContent = "*enter a valid year";
     isValid = false;
@@ -75,43 +71,30 @@ y1.addEventListener("input", () => {
 });
 
 //Get Current Dates
-
-  var date = new Date();
-  var d2 = date.getDate();
-  var m2 = 1 + date.getMonth();
-  var y2 = date.getFullYear();
+var date = new Date();
+var d2 = date.getDate();
+var m2 = 1 + date.getMonth();
+var y2 = date.getFullYear();
 var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  
 
-  submitBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+submitBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (d1.value > d2) {
+    d2 = d2 + month[m2 - 1];
+    m2 = m2 - 1;
+  }
 
+  if (m1.value > m2) {
+    m2 = m2 + 12;
+    y2 = y2 - 1;
+  }
 
+  var d = d2 - d1.value;
+  var m = m2 - m1.value;
+  var y = y2 - y1.value;
 
-
-
-
-
-
-
-
-    
-    if (d1 > d2) {
-      d2 = d2 + month[m2 - 1];
-      m2 = m2 - 1;
-    }
-
-    if (m1 > m2) {
-      m2 = m2 + 12;
-      y2 = y2 - 1;
-    }
-
-    var d = d2 - d1;
-    var m = m2 - m1;
-    var y = y2 - y1;
-
-    console.log(y)
-    yearOutput.innerHTML = y;
-    monthOutput.textContent = m;
-    dayOutput.textContent = d;
-  });
+  console.log(y);
+  yearOutput.innerHTML = y;
+  monthOutput.textContent = m;
+  dayOutput.textContent = d;
+});

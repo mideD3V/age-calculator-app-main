@@ -14,7 +14,8 @@ You will also get an error message if you enter an invalid date of birth.
 - Live Site URL: https://my-agecalculatorapp.netlify.app/
 
 ### Screenshots
-![](../../../Screenshot%202023-07-14%20at%2013.18.34.png)
+(./assets/designs/screenshot-bg)
+
 
 ![](../../../Screenshot%202023-07-14%20at%2013.19.11.png)
 

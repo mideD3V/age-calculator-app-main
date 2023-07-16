@@ -104,7 +104,7 @@ hr {
   color: hsl(259, 100%, 65%);
 }
 
-@media screen and (max-width: 375px) {
+@media (min-width: 320px) and (max-width:750px) {
   .card-ctn {
     width: 90%;
   }
@@ -124,7 +124,8 @@ hr {
   }
 
   hr {
-    display: none;
+    display: block;
+    width: 100%;
   }
   .result{
     margin-top: 3rem;

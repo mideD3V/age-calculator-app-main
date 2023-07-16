@@ -14,14 +14,18 @@ You will also get an error message if you enter an invalid date of birth.
 - Live Site URL: https://my-agecalculatorapp.netlify.app/
 
 ### Screenshots
-![](../../../Screenshot%202023-07-14%20at%2013.18.34.png)
+![](./assets/images/screenshot-bg.png)
 
-![](../../../Screenshot%202023-07-14%20at%2013.19.11.png)
+![](./assets/images/screenshot-sm.png
 
 ### Built with
 - HTML
 - CSS
 - JavaScript
 - Flexbox
-- 
+- Semantic HTML5 markup
+- CSS custom properties
 
+### Challenges
+After completing the page structure and styles, i had a challenge with the logic to find the age differences.
+Then i did a lot of research using YouTube, Google, and Stackoverflow to gain insight and learn the solution which I implemented in my code.

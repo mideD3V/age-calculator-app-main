@@ -136,6 +136,9 @@ hr {
     font-size: 16px;
   }
 
-  
+  small{
+    top: 39%;
+    max-width: 100%;
+  }
   
 }

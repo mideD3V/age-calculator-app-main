@@ -21,7 +21,7 @@ let isValid = false;
 
 d1.addEventListener("input", () => {
   if (d1.value > 31) {
-    dayError.textContent = "*enter a valid day";
+    dayError.textContent = "*invalid day";
   d1.style.outlineColor = "red";
     isValid = false;
     return;
@@ -39,7 +39,7 @@ d1.addEventListener("input", () => {
 
 m1.addEventListener("input", () => {
   if (m1.value > 12) {
-    monthError.textContent = "*enter a valid month";
+    monthError.textContent = "*invalid month";
     m1.style.outlineColor = 'red'
     isValid = false;
     return;
@@ -62,7 +62,7 @@ m1.addEventListener("input", () => {
 
 y1.addEventListener("input", () => {
   if (y1.value > 2023) {
-    yearError.textContent = "*enter a valid year";
+    yearError.textContent = "*invalid year";
       y1.style.outlineColor = "red";
     isValid = false;
     return;

@@ -53,6 +53,14 @@ m1.addEventListener("input", () => {
       m1.style.outlineColor = "red";
     isValid = false;
     return;
+  } else if (m1.value == 4 && d1.value > 30) {
+    monthError.textContent = "*invalid date";
+    m1.style.outlineColor = "red";
+    isValid = false;
+  } else if (m1.value == 2 && d1.value > 28) {
+    monthError.textContent = "*invalid date";
+    m1.style.outlineColor = "red";
+    isValid = false;
   } else {
     m1.style.outlineColor = "hsl(259, 100%, 65%)";
     monthError.textContent = "";
@@ -105,4 +113,9 @@ submitBtn.addEventListener("click", (e) => {
   yearOutput.innerHTML = y;
   monthOutput.textContent = m;
   dayOutput.textContent = d;
-});
+  d1.value = "";
+  m1.value = "";
+  y1.value = "";
+}
+  
+);
